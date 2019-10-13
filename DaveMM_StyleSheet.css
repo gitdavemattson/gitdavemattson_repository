@@ -1,0 +1,29 @@
+
+span.mainText {
+	color:purple;
+	font-family:times new roman;
+	font-size:48px;
+}
+
+span.secondaryText {
+	color:white;
+	background-color:purple;
+	font-family:times new roman;
+	font-size:24px;
+}
+
+span.tertiaryText {
+	color:white;
+	font-family:times new roman;
+	font-size:12px;
+}
+
+#specificLinkOne {
+	color:blue;
+	font-size:18px;
+}
+
+#specificLinkTwo {
+	color:blue;
+	font-size:14px;
+}
