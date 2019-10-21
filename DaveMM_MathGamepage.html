@@ -1,0 +1,85 @@
+<html>
+	<title>DaveMM MATH GAME!</title>
+
+	<head>
+    	<script>
+        	var actualAnswer;
+        	var number1;
+        	var number2;
+		var roundsPlayed = 0;
+		var correctAnswers = 0;
+		var incorrectAnswers = 0;
+		
+
+		
+       		function runGame()
+        	{
+            		for(var i = 0; i < 10; i++)
+            		{
+                 		number1 = Math.floor(Math.random() * 10);
+                	 	number2 = Math.floor(Math.random() * 10);
+            		}
+			
+            		printQuestion();
+        	}
+
+        	function printQuestion()
+        	{
+            		actualAnswer = number1 + number2;
+            		document.getElementById("theQuestion").innerHTML = "What is " + number1 + "+" + number2 + "?";
+			roundsPlayed++;
+        	}
+
+        	function checkAnswer()
+        	{
+           		var answer = document.getElementById("txtAnswer").value;
+           		if(answer == actualAnswer)
+            		{
+                	document.getElementById("finalResult").innerHTML = "Correct!";
+			correctAnswers++;
+                	runGame();
+           		}
+            		else
+            		{
+                	document.getElementById("finalResult").innerHTML = "Incorrect!";
+			incorrectAnswers++;
+			runGame();
+            		}
+        	}
+		
+		function roundsFilter()
+		{
+			if(roundsPlayed == 11)
+			{
+				endGame();
+			}
+			else
+			{
+				checkAnswer();
+			}
+		}
+		
+		function endGame()
+		{
+			var percentCorrect = correctAnswers * 10;
+			document.getElementById("finalResult").innerHTML = "The game is over! You got " + correctAnswers + " correct and " + incorrectAnswers + " incorrect. So your score is " + correctAnswers + "/10 or " + percentCorrect + "%.";
+		}
+
+    	</script>
+    	</head>
+
+    	<body onload="runGame();">
+        <div id="theQuestion"></div>
+            <table>
+                <tr>
+                    <td>Your answer</td>
+                    <td><input type="text" id="txtAnswer"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button id="btnSubmit" onClick="roundsFilter();">Submit</button></td>
+                </tr>
+            </table>
+        <div id="finalResult"></div>
+	<h5><a href="DaveMM_Homepage.html">Return to Homepage</a></h5>
+    </body>
+</html>
